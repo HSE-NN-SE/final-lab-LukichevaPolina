@@ -93,4 +93,4 @@ jobs:
 #                docker stop app
 #                fi
 #                docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_HUB_USERNAME }}/flask_app:latest
-            run: docker run -d -p 8080:8080 ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest
+            run: docker run -d -p 5000:5000 ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest

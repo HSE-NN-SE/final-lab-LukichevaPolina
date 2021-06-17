@@ -84,6 +84,8 @@ jobs:
 
           - name: Image digest
             run: echo ${{ steps.docker_build.outputs.digest }}
+          - name: Stop docker
+            run: docker stop a81c8befe32f
 
           - name: Run docker
             run: docker run -i -t -p 8080:80 -d ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest

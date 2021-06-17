@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: self-hosted-linux
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,7 +36,7 @@ jobs:
           echo test, and deploy your project.
           
   CodeStyle:
-      runs-on: self-hosted
+      runs-on: self-hosted-linux
       steps:
           - uses: actions/checkout@v2
           - name: Install dependencies
@@ -46,7 +46,7 @@ jobs:
 
 
   Tests:
-      runs-on: self-hosted
+      runs-on: self-hosted-linux
       needs: CodeStyle
       steps:
           - uses: actions/checkout@v2
@@ -57,7 +57,7 @@ jobs:
               python -m coverage report
   
   Dockerhub:
-       runs-on: self-hosted
+       runs-on: self-hosted-linux
        needs: Tests
        steps:
           - name: Check Out Repo 

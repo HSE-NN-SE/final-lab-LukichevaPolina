@@ -1,7 +1,6 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python3-pip python-dev build-essential
+FROM python3
+RUN pip install flask
 COPY . .
-WORKDIR . 
-RUN pip install -r requirements.txt
-CMD export FLASK_APP=js_example && flask run
+WORKDIR .
+ENV FLASK_APP=js_example
+CMD python -m flask run —host=0.0.0.0

@@ -80,18 +80,18 @@ jobs:
               context: ./
               file: ./Dockerfile
               push: true
-              tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+              tags: ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest
 
           - name: Image digest
             run: echo ${{ steps.docker_build.outputs.digest }}
 
-#   Deploy:
-#        runs-on: ubuntu-latest
-#        needs: Dockerhub
-#        steps:
-#           - uses: actions/checkout@v2
-#           - uses: AkhileshNs/heroku-deploy@v3.12.12
-#             with:
-#               heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-#               heroku_app_name: "flaskcalkulatorfinallab"
-#               heroku_email: ${{secrets.HEROKU_EMAIL}}
+  Deploy:
+       runs-on: self-hosted
+       needs: Dockerhub
+       steps:
+          - uses: actions/checkout@v2
+          - uses: AkhileshNs/heroku-deploy@v3.12.12
+            with:
+              heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+              heroku_app_name: "flaskcalkulatorfinallab"
+              heroku_email: ${{secrets.HEROKU_EMAIL}}

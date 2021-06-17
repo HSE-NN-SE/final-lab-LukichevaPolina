@@ -88,8 +88,9 @@ jobs:
             run: docker stop a81c8befe32f
 
           - name: Run docker
-            run: |
-               if [[ $(docker ps --filter "name=app" --format "{{.ID}}") != "" ]]; then 
-               docker stop app
-               fi
-               docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_HUB_USERNAME }}/flask_app:latest
+#             run: |
+#                if [[ $(docker ps --filter "name=app" --format "{{.ID}}") != "" ]]; then 
+#                docker stop app
+#                fi
+#                docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_HUB_USERNAME }}/flask_app:latest
+            run: docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_HUB_USERNAME }}/flask_app:latest

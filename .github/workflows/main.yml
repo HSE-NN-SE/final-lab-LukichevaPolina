@@ -86,4 +86,4 @@ jobs:
             run: echo ${{ steps.docker_build.outputs.digest }}
 
           - name: Run docker
-            run: docker run -p 8080:80 -d ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest
+            run: docker run -i -t -p 8080:80 -d ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest

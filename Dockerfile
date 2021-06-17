@@ -1,4 +1,5 @@
 FROM python:3-alpine
+MAINTAINER Lukicheva Polina 'lukichovapolina@gmail.com'
 RUN pip install flask
 COPY . .
 WORKDIR .

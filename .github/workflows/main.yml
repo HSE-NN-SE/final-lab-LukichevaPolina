@@ -88,8 +88,8 @@ jobs:
           - name: Run docker
             run: |
                 if [[ $(docker ps --filter "name=final_lab" --format {{.ID}}) != "" ]]; then 
-                docker stop final_app
-                docker rm final_app
+                docker stop final_lab
+                docker rm final_lab
                 fi
                 docker run -d -p 5000:5000 --name final_lab --rm ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest
               

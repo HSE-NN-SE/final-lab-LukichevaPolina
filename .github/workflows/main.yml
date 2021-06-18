@@ -110,4 +110,4 @@ jobs:
               echo "health check is failed"
               exit 1
               fi
-              echo "It's OK"
+              echo "It's OK!"

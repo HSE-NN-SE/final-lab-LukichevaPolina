@@ -87,8 +87,6 @@ jobs:
 
           - name: Run docker
             run: |
-                docker stop final_app
-                docker rm final_lab
                 if [[ $(docker ps --filter "name=final_lab" --format {{.ID}}) != "" ]]; then 
                 docker stop final_app
                 docker rm final_app

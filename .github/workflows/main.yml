@@ -56,7 +56,7 @@ jobs:
               python3 -m coverage run -m pytest
               python3 -m coverage report
   
-  Dockerhub:
+  Deploy:
        runs-on: self-hosted
        needs: Tests
        steps:
@@ -97,7 +97,7 @@ jobs:
             
   Check:
       runs-on: self-hosted
-      needs: Dockerhub
+      needs: Deploy
       steps:
          - name: curl
            id: ping

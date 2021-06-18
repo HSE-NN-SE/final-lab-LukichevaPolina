@@ -85,7 +85,7 @@ jobs:
           - name: Image digest
             run: echo ${{ steps.docker_build.outputs.digest }}
 
-          - name: Run docker
+          - name: Run docke
             run: |
               if [[ $(docker ps --filter "name=final_app" --format "{{.ID}}") != "" ]]; then 
               docker stop final_app

@@ -89,6 +89,7 @@ jobs:
             run: |
               if [[ $(docker ps --filter "name=app" --format "{{.ID}}") != "" ]]; then 
               docker stop app
+              docker rm app
               fi
               docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_HUB_USERNAME }}/final_app:latest
               
